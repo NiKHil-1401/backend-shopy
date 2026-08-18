@@ -27,8 +27,8 @@ app.use(cookieParser());
 
 // Routes
 app.use("/api/v1", product);
-app.use("/api/v1", user);
-app.use("/api/v1",order);
+app.use("/api/v2", user);
+app.use("/api/v3",order);
 
 app.get('/', (req, res) => {
   res.send('Api is running...');
