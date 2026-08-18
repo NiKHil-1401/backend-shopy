@@ -67,6 +67,7 @@ export const updateUserRole = catchAsyncErrors(async (req, res, next) => {
 // ============================
 export const loginUser = catchAsyncErrors(async (req, res, next) => {
   const { email, password } = req.body;
+  console.log(email, password);
 
   if (!email || !password) {
     return next(new ErrorHandler("Please enter email and password", 400));
