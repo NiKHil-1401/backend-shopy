@@ -8,6 +8,7 @@ import user from './routes/userRouters.js'
 import cookieParser from 'cookie-parser';
 import order from './routes/orderRoutes.js'
 
+await connectDB();
 
 
 const app = express();
@@ -23,7 +24,6 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 5000;
 
-connectDB();
 
 process.on('uncaughtException', (err) => {
   console.log(`Error: ${err.message}`);
