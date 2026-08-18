@@ -8,8 +8,10 @@ import user from './routes/userRouters.js'
 import cookieParser from 'cookie-parser';
 import order from './routes/orderRoutes.js'
 
-await connectDB();
-
+async function init() {
+  await connectDB();
+}
+init();
 
 const app = express();
 dotenv.config();
