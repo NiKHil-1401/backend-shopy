@@ -1,3 +1,4 @@
+import cors from 'cors';
 import express from 'express';
 import dotenv from 'dotenv';
 import product from './routes/productRoutes.js';
@@ -11,6 +12,15 @@ import order from './routes/orderRoutes.js'
 
 const app = express();
 dotenv.config();
+
+const corsOptions = {
+  origin: 'https://frontend-shofy-6bzsvb1jz-nikhil-c786.vercel.app/',
+  credentials: true, // needed if sending cookies/JWT via cookies
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+};
+
+app.use(cors(corsOptions));
+
 const PORT = process.env.PORT || 5000;
 
 connectDB();
