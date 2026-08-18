@@ -8,10 +8,7 @@ import user from './routes/userRouters.js'
 import cookieParser from 'cookie-parser';
 import order from './routes/orderRoutes.js'
 
-async function init() {
-  await connectDB();
-}
-init();
+
 
 const app = express();
 dotenv.config();
@@ -26,6 +23,9 @@ app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 5000;
 
+connectDB(()=> {
+  console.log('MongoDB connected');
+});
 
 process.on('uncaughtException', (err) => {
   console.log(`Error: ${err.message}`);
